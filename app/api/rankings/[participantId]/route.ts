@@ -1,0 +1,1 @@
+import { NextResponse } from 'next/server';import { rankings } from '@/lib/store'; export async function GET(_:Request,{params}:{params:Promise<{participantId:string}>}){return NextResponse.json(rankings((await params).participantId))}

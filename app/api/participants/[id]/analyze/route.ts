@@ -1,0 +1,2 @@
+import { NextResponse } from 'next/server'; import { findParticipant } from '@/lib/store'; import { analyzeProfile } from '@/lib/agent/profileAnalyzer';
+export async function POST(_:Request,{params}:{params:Promise<{id:string}>}){const p=await findParticipant((await params).id);if(!p)return NextResponse.json({error:'Not found'},{status:404});const result=await analyzeProfile(p);return NextResponse.json({participantId:p.id,status:'complete',sourceStatus:'Demo / User-provided',...result})}

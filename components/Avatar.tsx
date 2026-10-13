@@ -1,0 +1,3 @@
+import { Person } from '@/lib/demo-data';
+export function initials(name:string){return name.split(/\s+/).filter(Boolean).slice(0,2).map(part=>part[0]).join('').toUpperCase()}
+export function Avatar({person,size='md'}:{person:Pick<Person,'name'|'avatar'>;size?:'sm'|'md'|'lg'}){const classes={sm:'h-12 w-12 text-sm rounded-2xl',md:'h-14 w-14 text-base rounded-2xl',lg:'h-24 w-24 text-2xl rounded-3xl'};return <div aria-label={`${person.name} avatar`} className={`${classes[size]} grid shrink-0 place-items-center font-black text-white shadow-lg`} style={{background:person.avatar}}>{initials(person.name)}</div>}
