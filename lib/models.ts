@@ -1,5 +1,5 @@
 import mongoose,{Schema} from 'mongoose';
-const participant=new Schema({id:String,name:String,city:String,role:String,interests:[String],communication:String,dateStyle:String,intention:String,avatar:String,completion:Number,energy:String,avoid:[String],linkedinUrl:String,instagramUrl:String,sourceMode:String,ageConfirmed:Boolean,consent:Boolean},{timestamps:true});
+const participant=new Schema({id:String,ownerId:String,name:String,city:String,role:String,interests:[String],communication:String,dateStyle:String,intention:String,avatar:String,completion:Number,energy:String,avoid:[String],linkedinUrl:String,instagramUrl:String,sourceMode:String,ageConfirmed:Boolean,consent:Boolean},{timestamps:true});
 export const Participant=mongoose.models.Participant||mongoose.model('Participant',participant);
 // Additional persisted collections used by the full platform lifecycle.
 export const SourceSnapshot=mongoose.models.SourceSnapshot||mongoose.model('SourceSnapshot',new Schema({participantId:String,source:String,evidence:[Schema.Types.Mixed]}));
